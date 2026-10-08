@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="flappy bird/flappy bird.csproj" Id="35179c8a-30aa-4564-b368-3834e34c0647" />
   <Project Path="kamen nuzky papir/kamen nuzky papir.csproj" />
   <Project Path="Papoušek/Papoušek.csproj" />
   <Project Path="Piškvorky/Piškvorky.csproj" Id="ca8ecb02-7434-48e6-931a-a37f5459d6d0" />
