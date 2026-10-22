@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "C#: Project1 Debug",
+        "name": "C#: MonoGame Debug",
         "type": "dotnet",
         "request": "launch",
-        "projectPath": "${workspaceFolder}/Project1.csproj"
+        "projectPath": "${workspaceFolder}/MonoGame.csproj"
       }
     ],
   }

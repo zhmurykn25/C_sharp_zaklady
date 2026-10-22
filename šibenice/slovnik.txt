@@ -1,0 +1,10 @@
+kocka
+pes
+zahrada
+okno
+kniha
+pocitac
+mobil
+stul
+strom
+dům

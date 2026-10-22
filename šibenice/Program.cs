@@ -4,7 +4,22 @@ namespace šibenice
     {
         static void Main(string[] args)
         {
-            string[] slovnik = { "kocka", "pes", "zahrada", "okno", "kniha", "pocitac", "mobil", "stul", "strom", "dům" };
+            // Načtení slov ze souboru
+            string cestslovniku = "slovnik.txt";
+
+            // Pokud soubor není v aktuálním adresáři, hledej jej v projektovém adresáři
+            if (!File.Exists(cestslovniku))
+            {
+                cestslovniku = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "šibenice", "slovnik.txt");
+            }
+
+            string[] slovnik = NacteniSlovnika(cestslovniku);
+
+            if (slovnik.Length == 0)
+            {
+                Console.WriteLine("Chyba: Soubor slovnik.txt je prázdný!");
+                return;
+            }
 
             Random random = new Random();
             string slovo = slovnik[random.Next(slovnik.Length)].ToLower();
@@ -106,6 +121,31 @@ namespace šibenice
                     return false;
             }
             return true;
+        }
+
+        static string[] NacteniSlovnika(string cesta)
+        {
+            try
+            {
+                if (!File.Exists(cesta))
+                {
+                    Console.WriteLine($"Chyba: Soubor '{cesta}' neexistuje!");
+                    return Array.Empty<string>();
+                }
+
+                // Přečti všechny řádky a odstraň prázdné řádky
+                string[] slova = File.ReadAllLines(cesta)
+                    .Select(slovo => slovo.Trim())
+                    .Where(slovo => !string.IsNullOrEmpty(slovo))
+                    .ToArray();
+
+                return slova;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Chyba při čtení souboru: {ex.Message}");
+                return Array.Empty<string>();
+            }
         }
     }
 }
